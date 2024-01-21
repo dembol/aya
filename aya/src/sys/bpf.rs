@@ -785,7 +785,9 @@ pub(crate) fn is_bpf_global_data_supported() -> bool {
 
         bpf_prog_load(&mut attr).is_ok()
     } else {
-        false
+println!("{:?}", map);
+true
+    //    false
     }
 }
 
