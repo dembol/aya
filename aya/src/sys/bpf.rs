@@ -783,14 +783,9 @@ pub(crate) fn is_bpf_global_data_supported() -> bool {
         u.insns = insns.as_ptr() as u64;
         u.prog_type = bpf_prog_type::BPF_PROG_TYPE_SOCKET_FILTER as u32;
 
-        let r = bpf_prog_load(&mut attr);
-
-	println!("R {:?}", r);
-true
+        bpf_prog_load(&mut attr).is_ok()
     } else {
-println!("{:?}", map);
-true
-    //    false
+        false
     }
 }
 
